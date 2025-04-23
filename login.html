@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      height: 100vh;
+      overflow: hidden; 
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+    }
+
+    .left-panel {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      background-color: #fff;
+    }
+
+    .left-panel h2 {
+      margin-bottom: 20px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .input-box {
+      width: 100%;
+      max-width: 320px;
+      margin-bottom: 15px;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .login-button {
+      width: 100%;
+      max-width: 320px;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      transition: background-color 0.2s ease;
+    }
+
+    .login-button:hover {
+        background-color: #1d4ed8;
+    }
+
+    .forgot {
+      color: #2563eb;
+      font-size: 13px;
+      margin-bottom: 25px; 
+      text-align: right;
+      width: 100%;
+      max-width: 320px;
+      display: block;
+      text-decoration: none;
+    }
+    .forgot:hover {
+        text-decoration: underline;
+    }
+    .divider {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        max-width: 320px; 
+        margin: 20px 0; 
+        color: #aaa;
+    }
+
+    .divider .line {
+        flex-grow: 1;
+        height: 1px; 
+        background-color: #ccc; 
+    }
+
+    .divider .or-text {
+        padding: 0 15px; 
+        font-size: 13px;
+        font-weight: 500;
+        color: #888; 
+    }
+
+    .social-login {
+      display: flex;
+      gap: 15px;
+      width: 100%;
+      max-width: 320px;
+      justify-content: space-between;
+    }
+
+    .social-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      cursor: pointer;
+      flex: 1;
+      font-weight: 500;
+      font-size: 14px;
+      background-color: #fff;
+      transition: background-color 0.2s ease;
+      color: #333;
+    }
+
+    .social-button:hover {
+        background-color: #f0f0f0;
+    }
+
+    .social-button img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .signup-link {
+      margin-top: 25px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .signup-link a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .signup-link a:hover {
+        text-decoration: underline;
+    }
+
+    .terms-link {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #888;
+      text-align: center;
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .terms-link a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    .terms-link a:hover {
+      text-decoration: underline;
+    }
+
+    .right-panel {
+      width: 50%;
+      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQykfqrD6SrEFevTx2Rd8gMS20zEOewe9P14w&s');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      color: white;
+      padding: 40px;
+      position: relative;
+    }
+
+    .right-panel::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        z-index: 1;
+    }
+
+    .quote {
+      font-size: 24px;
+      font-weight: 300;
+      max-width: 500px;
+      padding: 20px;
+      border-radius: 12px;
+      position: relative;
+      z-index: 2;
+      line-height: 1.6;
+    }
+
+    .quote strong {
+      font-weight: 600;
+      color: #93c5fd;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <h2>Log In</h2>
+      <div class="input-box">
+        <input type="email" id="email" placeholder="Your email" required>
+      </div>
+      <div class="input-box">
+        <input type="password" id="password" placeholder="Password" required>
+      </div>
+      <button class="login-button" id="loginBtn">Log In</button>
+      <a href="#" class="forgot">Forgot password?</a>
+
+      <div class="divider">
+          <span class="line"></span>
+          <span class="or-text">OR</span>
+          <span class="line"></span>
+      </div>
+
+      <div class="social-login">
+        <div class="social-button">
+          <img src="https://img.icons8.com/color/24/google-logo.png" alt="Google icon"/> Google
+        </div>
+        <div class="social-button">
+          <img src="https://img.icons8.com/color/24/facebook-new.png" alt="Facebook icon"/> Facebook
+        </div>
+      </div>
+
+      <div class="signup-link">
+        Don’t have an account? <a href="signup.html">Sign Up</a>
+      </div>
+
+    </div>
+    <div class="right-panel">
+      <p class="quote">The future belongs to those who <strong>believe</strong> in the <strong>beauty of their dreams.</strong><br> - Eleanor Roosevelt</p>
+    </div>
+  </div>
+
+  <script>
+    const loginButton = document.getElementById('loginBtn');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+
+    loginButton.addEventListener('click', function(event) {
+      const emailValue = emailInput.value.trim();
+      const passwordValue = passwordInput.value.trim();
+      if (emailValue === '' || passwordValue === '') {
+        event.preventDefault();
+        alert('Please enter both email and password.');
+      } else {
+        console.log('Attempting login with:', emailValue);
+      }
+    });
+  </script>
+
+</body>
+</html>
